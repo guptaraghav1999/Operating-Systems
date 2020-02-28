@@ -5,8 +5,15 @@
 
 // state for your coroutine implementation:
 struct f_t{
-
     //insert your code here
+    int i;
+    int j;
+    int a;
+    int enter;
+    bool done;
+    bool isPrime;
+    int input;
+    coroutine_t fcoro;
 
 };
 
