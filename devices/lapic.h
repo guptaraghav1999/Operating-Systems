@@ -48,7 +48,8 @@ class dev_lapic_t{
       hoh_debug("LAPIC: "<<&m_dev);
     }
 
-    void reset_timer_count(uint32_t count){
+    void 
+    reset_timer_count(uint32_t count){
       reset_timer_count(count,xapic_by1);
     }
     void reset_timer_count(uint32_t count, xapic_divide_t div_val){
