@@ -2,6 +2,19 @@
 #include "util/config.h"
 #include "util/debug.h"
 
+
+struct fib1{
+    int answer;
+    int input;
+    int answer_cursor;
+    int f_enter;
+};
+
+struct queue{
+    fib1 fiber_queue[5];
+    int count;
+};
+
 struct shellstate_t{
     char* char_to_int;
     char* keys;
@@ -22,6 +35,7 @@ struct shellstate_t{
     bool is_option_selected;
     int selected_option;
     int total_options;
+    bool get_parameter;
     bool execute_function;
     bool has_executed;
     int input_len;
@@ -34,7 +48,25 @@ struct shellstate_t{
     int f_j;
     int f_enter;
 
+    bool is_longcomp_running;
+    bool is_pending;
 
+    bool display_option;
+
+    int prev_fiber;
+    bool fiber_scheduler_arr[5];
+    bool task_ready[5];
+    int task_ans[5];
+    int task_ans_cursor[5];
+    int task_input[5];
+    int ans_cursor;
+
+    bool print_ans;
+
+    int run_task;
+    int total_task;
+    int task1;
+    int task2;
 
 };
 
@@ -58,6 +90,7 @@ struct renderstate_t{
     bool is_option_selected;
     int selected_option;
     int total_options;
+    bool get_parameter;
     bool execute_function;
     bool has_executed;
     int input_len;
@@ -70,7 +103,26 @@ struct renderstate_t{
     int f_j;
     int f_enter;
 
+    bool display_option;
+
+    int prev_fiber;
+    bool fiber_scheduler_arr[5];
+    bool task_ready[5];
+    int task_ans[5];
+    int task_ans_cursor[5];
+    int task_input[5];
+    int ans_cursor;
+
+    bool print_ans;
+
+    int run_task;
+    int total_task;
+    int task1;
+    int task2;
+
+
 };
+
 
 void shell_init(shellstate_t& state);
 void shell_update(uint8_t scankey, shellstate_t& stateinout);
